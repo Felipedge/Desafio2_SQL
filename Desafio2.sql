@@ -15,3 +15,7 @@ Respuesta: SELECT DISTINCT(fecha), SUM(cantidad) FROM INSCRITOS GROUP BY fecha;
 Respuesta: SELECT DISTINCT(fuente), SUM(cantidad) FROM INSCRITOS GROUP BY fuente;
 
 
+/* Qué día se inscribieron la mayor cantidad de personas y cuántas personas se
+inscribieron en ese día? */
+Respuesta: SELECT DISTINCT(fecha), SUM(cantidad) FROM INSCRITOS GROUP by fecha ORDER BY SUM(cantidad);
+
