@@ -1,3 +1,10 @@
+CREATE DATABASE desafio2_felipe_palma_222;
+CREATE TABLE INSCRITOS(cantidad INT, fecha DATE, fuente
+VARCHAR);
+
+/* SE INSERTAN DATOS ENTREGADOS EN DOCUMENTO DESAFIO 2 - CONSULTAS AGRUPADAS */
+
+
 /* ¿Cúantos registros hay? */
 Respuesta: SElECT COUNT(*) FROM INSCRITOS;
 
@@ -26,4 +33,7 @@ Respuesta: SELECT * FROM INSCRITOS WHERE cantidad = (SELECT MAX(cantidad) FROM I
 Respuesta: SELECT AVG(total) FROM (SELECT fecha, SUM(cantidad) as total FROM INSCRITOS GROUP by fecha);
 
 /* ¿Qué días se inscribieron más de 50 personas? */
-SELECT fecha, SUM(cantidad) FROM INSCRITOS GROUP by fecha HAVING SUM(cantidad) > 50;
+Respuesta: SELECT fecha, SUM(cantidad) FROM INSCRITOS GROUP by fecha HAVING SUM(cantidad) > 50;
+
+/*Pregunta Nº 10 ● ¿Cuántas personas se registraron en promedio cada día a partir del tercer día? */
+Respuesta: SELECT AVG(cantidad), fecha FROM INSCRITOS WHERE fecha >= '01/03/2021' GROUP BY fecha ORDER BY fecha asc;
